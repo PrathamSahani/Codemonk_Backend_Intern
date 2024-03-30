@@ -36,7 +36,7 @@ For my Codemonk Backend Intern Assignment, I have developed a solution in both A
 5. Also, install PostgreSQL:
    
    ```bash
-   pip install postgresql2
+   pip install psycopg2
    ```
    
 6. Open your PostgreSQL and change the database inputs according to your PostgreSQL information before running and migrating the code.
@@ -63,7 +63,7 @@ For my Codemonk Backend Intern Assignment, I have developed a solution in both A
 10. For creating the authorization token, use the below command:
     
     ```bash
-    python manage.py drf_token <email>
+    python manage.py drf_create_token <email>
     ```
     
 11. Copy the token and then open Postman and make a GET request with the URL:
@@ -118,7 +118,8 @@ That is the complete step-by-step process to run the code. I hope it's understan
 5. Change the database information to your PostgreSQL information and then install PostgreSQL:
    
    ```bash
-   pip install postgresql2
+   pip install psycopg2
+
    ```
    
 6. Migrate the code using the following commands and create a superuser:
