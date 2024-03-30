@@ -1,0 +1,149 @@
+<style>
+    form.search-form {
+      margin-top: 2rem;
+      text-align: center;
+    }
+  
+    form.search-form input[type="text"] {
+      width: 40%;
+      padding: 0.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  
+    form.search-form button {
+      padding: 0.5rem 1rem;
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    form.search-form button:hover {
+      background-color: #0056b3;
+    }
+  
+    table {
+      width: 90%;
+      margin: 2rem auto;
+      border-collapse: collapse;
+    }
+  
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ccc;
+      max-width: 400px; 
+      word-wrap: break-word; 
+    }
+  
+    th {
+      background-color: #f2f2f2;
+    }
+  
+    tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  
+    tbody tr:hover {
+      background-color: #ddd;
+    }
+  
+    .btn {
+      padding: 0.5rem 1rem;
+      margin: 0.2rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+  
+    .btn-danger {
+      background-color: hsl(354, 70%, 54%);
+      text-decoration: none;
+      color: #fff;
+    }
+  
+    .btn-danger:hover {
+      background-color: #c82333;
+    }
+  
+    .btn-success {
+      background-color: #28a745;
+      text-decoration: none;
+      color: #fff;
+    }
+  
+    .btn-success:hover {
+      background-color: #218838;
+    }
+  
+    form.card textarea {
+      height: 130px;
+    }
+  
+    label {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    img {
+        display: block; 
+        margin:auto; 
+        width: 200px;
+        margin-bottom: -70px;
+        margin-top: -50px;
+      }
+  </style>
+  
+  <div class="container">
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240328205312/ok-removebg-preview-(1).png" alt="">
+    <br>
+    <br>
+  
+    <form class="search-form">
+      <div class="form-group">
+        <label>Search Food</label>
+        <input name="search" type="text" class="form-control">
+        <button type="submit" class="btn btn-primary">Search</button>
+        <a href="{% url 'paragraph' %}" class="btn btn-success">Create</a>
+
+        {% if request.user.is_authenticated %}
+         <a class="btn btn-danger" href="{% url 'logout' %}">Logout </a>    
+         {% else %}
+         <h2 style="color: gray;">To Add Content Please Login First </h2>    
+        {% endif %}
+
+        
+      </div>
+    </form>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Paragraph Title</th>
+          <th scope="col">Paragraph Description</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for paragraph in paragraphs %}
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{paragraph.paragraph_name}}</td>
+          <td style="text-align: justify;">{{paragraph.paragraph_description}}</td>
+          <td>
+            
+            <a href="/delete_paragraph/{{paragraph.id }}" class="btn btn-danger">Delete</a>
+            <a href="/update_paragraph/{{paragraph.id }}" class="btn btn-success">Update</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  

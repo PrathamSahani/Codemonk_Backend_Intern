@@ -1,0 +1,84 @@
+<style>
+  .text {
+    color: red;
+    font-weight: bold;
+    font-size: 33px;
+  }
+
+  .container {
+    margin-top: 5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  form.card {
+    width: 25%;
+    margin: 0 auto;
+    padding: 1.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  img {
+    display: block; 
+    margin:auto; 
+    width: 150px;
+    margin-bottom: -70px;
+    margin-top: -50px;
+  }
+
+  form.card input[type="text"],
+  form.card textarea,
+  form.card input[type="file"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  form.card button {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: rgb(221, 87, 87);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  form.card button:hover {
+    background-color: red;
+  }
+
+  form.card textarea {
+    height: 130px; /* Increased textarea height */
+  }
+</style>
+
+<div class="container">
+  <form  class="card" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <a href="{% url 'home' %}"> <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240328205312/ok-removebg-preview-(1).png" alt=""> </a>
+    <br>
+    <br>
+    
+    <h3>Add Content</h3>
+    <hr>
+    <div class="form-group">
+      <label >Paragraph Title</label>
+      <input name="paragraph_name" type="text" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label >Paragraph Description</label>
+      <textarea name="paragraph_description" class="form-control" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Add Paragraph</button>
+  </form>
+
+</div>
