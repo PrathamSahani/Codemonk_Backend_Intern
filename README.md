@@ -20,27 +20,27 @@ For my Codemonk Backend Intern Assignment, I have developed a solution in both A
    python -m venv env 
    ```
    
-4. Activate the virtual environment:
+3. Activate the virtual environment:
    
    ```bash
-   source env/bin/activate
+    .\env\Scripts\activate.ps1
    ```
    
-6. Install Django and Django Rest Framework:
+4. Install Django and Django Rest Framework:
    
    ```bash
    pip install django
    pip install djangorestframework
    ```
    
-8. Also, install PostgreSQL:
+5. Also, install PostgreSQL:
    
    ```bash
    pip install postgresql2
    ```
    
-10. Open your PostgreSQL and change the database inputs according to your PostgreSQL information before running and migrating the code.
-11. Navigate to the core directory and run the following commands for migrations:
+6. Open your PostgreSQL and change the database inputs according to your PostgreSQL information before running and migrating the code.
+7. Navigate to the core directory and run the following commands for migrations:
     
    ```bash
    cd core 
@@ -48,32 +48,32 @@ For my Codemonk Backend Intern Assignment, I have developed a solution in both A
    python manage.py migrate 
    ```
 
-11. Create the superuser:
+8. Create the superuser:
     
    ```bash
    python manage.py createsuperuser
    ```
 
-11. Run the code using the following command:
+9. Run the code using the following command:
     
    ```bash
    python manage.py runserver
    ```
 
-11. For creating the authorization token, use the below command:
+10. For creating the authorization token, use the below command:
     
     ```bash
     python manage.py drf_token <email>
     ```
     
-13. Copy the token and then open Postman and make a GET request with the URL:
+11. Copy the token and then open Postman and make a GET request with the URL:
     
     ```
     https://127.0.0.1/paragraph
     ```
     
-15. We can't access the data initially. First, go to the header section, choose authorization as the key, and in the value section, write "Token <generated token>". Then we can access the data.
-16. To add data, use the following URL and JSON data with a POST request:
+12. We can't access the data initially. First, go to the header section, choose authorization as the key, and in the value section, write "Token <generated token>". Then we can access the data.
+13. To add data, use the following URL and JSON data with a POST request:
     
     ```
     POST: https://127.0.0.1/paragraph
@@ -87,7 +87,7 @@ For my Codemonk Backend Intern Assignment, I have developed a solution in both A
     }
     ```
     
-18. Now the data is added. We can also search for a particular word using the below API URL:
+14. Now the data is added. We can also search for a particular word using the below API URL:
     
     ```
     https://127.0.0.1/paragraph/?search=search_word_write_here
@@ -103,25 +103,25 @@ That is the complete step-by-step process to run the code. I hope it's understan
    python -m venv env 
    ```
    
-4. Then enter into the virtual environment:
+3. Then enter into the virtual environment:
    
    ```bash
-   source env/bin/activate
+    .\env\Scripts\activate.ps1
    ```
    
-6. Install Django:
+4. Install Django:
    
    ```bash
    pip install django 
    ```
    
-8. Change the database information to your PostgreSQL information and then install PostgreSQL:
+5. Change the database information to your PostgreSQL information and then install PostgreSQL:
    
    ```bash
    pip install postgresql2
    ```
    
-10. Migrate the code using the following commands and create a superuser:
+6. Migrate the code using the following commands and create a superuser:
     
    ```bash
    python manage.py makemigrations
@@ -129,13 +129,37 @@ That is the complete step-by-step process to run the code. I hope it's understan
    python manage.py createsuperuser
    ```
 
-11. Then run the code using the below command:
+7. Then run the code using the below command:
     
    ```bash
    python manage.py runserver
    ```
 
 Now the project is running successfully. I hope this also helps you for successfully run the code.
+
+## Dockerization Django Application
+To Dockerize the application, follow these steps:
+
+1. Make sure you have Docker installed on your system.
+2. Clone this repository to your local machine.
+3. Navigate to the root directory of the project.
+4. Run the following command to build the Docker image:
+
+```bash
+docker build -t myapp .
+```
+
+### Using Django-Compose
+If you prefer to use Django with Docker Compose, follow these steps:
+
+1. Ensure Docker and Docker Compose are installed on your system.
+2. Clone this repository to your local machine.
+3. Navigate to the root directory of the project.
+4. Run the following command to build and start the Django application using Docker Compose:
+
+```bash
+django-compose up --build
+```
 
 ## Postman API Documentation
 
@@ -197,4 +221,8 @@ The base URL for all endpoints is `https://127.0.0.1/`.
 
 Please ensure you have followed the steps for authentication before accessing the endpoints. You can use tools like Postman to interact with the API.
 
-**Thank you for the opportunity.**
+### Additional Information
+For any issues or inquiries regarding the project, please feel free to contact us.
+
+**Happy coding:)**
+
